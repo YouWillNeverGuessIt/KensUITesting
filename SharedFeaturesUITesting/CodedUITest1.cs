@@ -33,12 +33,17 @@ namespace SharedFeaturesUITesting
         [TestMethod]
         public void GoogleTestMethod1()
         {
-            
-                //!Make sure to add the path to where you extracting the chromedriver.exe:
-                IWebDriver driver = new ChromeDriver(@"C:\Users\oslandt\Desktop\KensUITests\SharedFeaturesUITesting"); //<-Add your path
+
+            //!Make sure to add the path to where you extracting the chromedriver.exe:
+            using (IWebDriver driver = new ChromeDriver(@"C:\Users\oslandt\Desktop\KensUITests\SharedFeaturesUITesting"))//<-Add your path
+            {
                 driver.Navigate().GoToUrl("https://www.google.com");
-            
+
+            }
+
         }
+
+
 
         #region Additional test attributes
 
