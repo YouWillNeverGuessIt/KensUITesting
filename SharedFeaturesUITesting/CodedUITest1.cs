@@ -79,7 +79,61 @@ namespace SharedFeaturesUITesting
         }
 
 
+        [TestMethod]
+        public void ValidLogInAndLogOff()
+        {
+            //!Make sure to add the path to where you extracting the chromedriver.exe:
+            using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
+            {
+                //set an implicit wait time before any search for an item fails
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Extensions.maxWaitTime);
 
+                //navigate to the kenworth page
+                driver.Navigate().GoToUrl(Extensions.homepage);
+
+                //find the email box to input username info
+                IWebElement emailBox = driver.FindElement(By.Id("Email"));
+
+                //enter a valid email to login
+                emailBox.SendKeys(Extensions.validEmail1);
+
+                //find the password box to input password info    
+                IWebElement passwordBox = driver.FindElement(By.Id("Password"));
+
+                //enter a valid password
+                passwordBox.SendKeys(Extensions.validPassword1);
+
+                //submit
+                driver.FindElement(By.Name("LogInSubmit")).Click();
+
+                //set a wait for page to render
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Extensions.maxWaitTime));
+
+                //set a wait until
+                IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(By.Name("LogOffSubmit")));
+
+                //find the log out button and click it
+                driver.FindElement(By.Name("LogOffSubmit")).Click();
+
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.screenshotLocation + "/ValidLogInAndLogOff" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+            }
+        }
 
         //add tests for
         // clicking correct links
