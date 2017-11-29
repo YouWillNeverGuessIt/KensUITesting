@@ -15,6 +15,9 @@ namespace SharedFeaturesUITesting
         public const string chromeDriverLocation = "C:/Users/oslandt/Desktop/KensUITests/SharedFeaturesUITesting";
 
         //location to store screenshots in
+        public const string screenshotLocation = "C:/Users/oslandt/Desktop/Screenshots";
 
+        //the current date and time
+        public DateTime currentDateTime = DateTime.Now;
     }
 }
