@@ -234,10 +234,17 @@ namespace SharedFeaturesUITesting
                 }
             }
         }
-        //add tests for
-        // clicking correct links
-        // logging in incorrectly
-        // toggling admin privleges
+        //add happy path tests for
+        // clicking any and all links
+        //   toggling admin privleges
+        // register a user
+        //  needs a test db for that
+        // 
+        //add bad paths for
+        // log in
+        // toggle admin privleges
+        // database inputs
+        // 
 
 
         #region Additional test attributes
