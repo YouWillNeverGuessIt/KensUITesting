@@ -74,8 +74,14 @@ namespace SharedFeaturesUITesting
                 //save a screenshot of the result
                 try
                 {
+                    //take the screenshot
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
-                    ss.SaveAsFile(@"C:\Users\oslandt\Desktop\Screenshots\ValidLogIn.jpg", ScreenshotImageFormat.Jpeg);
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.screenshotLocation + "/ValidLogIn" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
                 }
                 catch (Exception e)
                 {

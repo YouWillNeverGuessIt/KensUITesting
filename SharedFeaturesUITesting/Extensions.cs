@@ -17,7 +17,17 @@ namespace SharedFeaturesUITesting
         //location to store screenshots in
         public const string screenshotLocation = "C:/Users/oslandt/Desktop/Screenshots";
 
-        //the current date and time
-        public DateTime currentDateTime = DateTime.Now;
+
+
+
+        //for fetching the current date and time in a format that can be stored as a file name
+        public static string CurrentDateTimeFileStringFormat()
+        {
+            string originalFormat = DateTime.Now.ToString("t");
+
+            string finalFormat = originalFormat.Replace(":","-");
+
+            return finalFormat;
+        }
     }
 }
