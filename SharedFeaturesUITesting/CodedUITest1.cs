@@ -47,18 +47,46 @@ namespace SharedFeaturesUITesting
         }
 
         [TestMethod]
-        public void KenworthVisitTest()
+        public void KenworthLoginTestValidLogin()
         {
 
             //!Make sure to add the path to where you extracting the chromedriver.exe:
-            using (IWebDriver driver = new ChromeDriver(@"C:\Users\oslandt\Desktop\KensUITests\SharedFeaturesUITesting"))//<-Add your path
+            using (IWebDriver driver = new ChromeDriver(@"C:\Users\oslandt\Desktop\KensUITests"))//<-Add your path
             {
+                //navigate to the kenworth page
                 driver.Navigate().GoToUrl("http://localhost:50298/");
 
+                //find the email box to input username info
+                IWebElement emailBox = driver.FindElement(By.Id("Email"));
 
+                //enter a valid email to login
+                emailBox.SendKeys("testOMGTEST@gmail.com");
+
+                //find the password box to input password info    
+                IWebElement passwordBox = driver.FindElement(By.Id("Password"));
+
+                //enter a valid password
+                passwordBox.SendKeys("123456");
+
+                //submit
+                //IWebElement submitButton = driver.FindElement(By.Name("LogInSubmit"));
+                driver.FindElement(By.Name("LogInSubmit")).Click();
+
+                //save a screenshot of the result
+                try
+                {
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+                    ss.SaveAsFile(@"C:\Users\oslandt\Desktop\Screenshots\validLogIn.jpg", ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
             }
 
         }
+
 
         #region Additional test attributes
 
