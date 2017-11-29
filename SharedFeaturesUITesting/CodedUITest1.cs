@@ -34,7 +34,7 @@ namespace SharedFeaturesUITesting
         }
 
         [TestMethod]
-        public void ValidLogIn()
+        public void ValidLogInAdmin()
         {
             //!Make sure to add the path to where you extracting the chromedriver.exe:
             using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
@@ -46,13 +46,13 @@ namespace SharedFeaturesUITesting
                 IWebElement emailBox = driver.FindElement(By.Id("Email"));
 
                 //enter a valid email to login
-                emailBox.SendKeys(Extensions.validEmail1);
+                emailBox.SendKeys(Extensions.validEmailAdmin1);
 
                 //find the password box to input password info    
                 IWebElement passwordBox = driver.FindElement(By.Id("Password"));
 
                 //enter a valid password
-                passwordBox.SendKeys(Extensions.validPassword1);
+                passwordBox.SendKeys(Extensions.validPasswordAdmin1);
 
                 //submit
                 driver.FindElement(By.Name("LogInSubmit")).Click();
@@ -64,7 +64,7 @@ namespace SharedFeaturesUITesting
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
                     //create the name of the sceenshot
-                    string ssName = Extensions.screenshotLocation + "/ValidLogIn" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+                    string ssName = Extensions.screenshotLocation + "/ValidLogInAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
 
                     //store the screenshot
                     ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
@@ -78,9 +78,53 @@ namespace SharedFeaturesUITesting
 
         }
 
+        [TestMethod]
+        public void ValidLogInNotAdmin()
+        {
+            //!Make sure to add the path to where you extracting the chromedriver.exe:
+            using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
+            {
+                //navigate to the kenworth page
+                driver.Navigate().GoToUrl(Extensions.homepage);
+
+                //find the email box to input username info
+                IWebElement emailBox = driver.FindElement(By.Id("Email"));
+
+                //enter a valid email to login
+                emailBox.SendKeys(Extensions.validEmailNotAdmin1);
+
+                //find the password box to input password info    
+                IWebElement passwordBox = driver.FindElement(By.Id("Password"));
+
+                //enter a valid password
+                passwordBox.SendKeys(Extensions.validPasswordNotAdmin1);
+
+                //submit
+                driver.FindElement(By.Name("LogInSubmit")).Click();
+
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.screenshotLocation + "/ValidLogInNotAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+            }
+
+        }
 
         [TestMethod]
-        public void ValidLogInAndLogOff()
+        public void ValidLogInAndLogOffAdmin()
         {
             //!Make sure to add the path to where you extracting the chromedriver.exe:
             using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
@@ -95,13 +139,13 @@ namespace SharedFeaturesUITesting
                 IWebElement emailBox = driver.FindElement(By.Id("Email"));
 
                 //enter a valid email to login
-                emailBox.SendKeys(Extensions.validEmail1);
+                emailBox.SendKeys(Extensions.validEmailAdmin1);
 
                 //find the password box to input password info    
                 IWebElement passwordBox = driver.FindElement(By.Id("Password"));
 
                 //enter a valid password
-                passwordBox.SendKeys(Extensions.validPassword1);
+                passwordBox.SendKeys(Extensions.validPasswordAdmin1);
 
                 //submit
                 driver.FindElement(By.Name("LogInSubmit")).Click();
@@ -122,7 +166,7 @@ namespace SharedFeaturesUITesting
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
                     //create the name of the sceenshot
-                    string ssName = Extensions.screenshotLocation + "/ValidLogInAndLogOff" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+                    string ssName = Extensions.screenshotLocation + "/ValidLogInAndLogOffAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
 
                     //store the screenshot
                     ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);

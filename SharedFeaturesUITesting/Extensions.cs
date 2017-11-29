@@ -18,8 +18,11 @@ namespace SharedFeaturesUITesting
         public const string screenshotLocation = "C:/Users/oslandt/Desktop/Screenshots";
 
         //log in details used for testing
-        public const string validEmail1 = "testOMGTEST@gmail.com";
-        public const string validPassword1 = "123456";
+        public const string validEmailAdmin1 = "testOMGTEST@gmail.com";
+        public const string validPasswordAdmin1 = "123456";
+        public const string validEmailNotAdmin1 = "userTest@gmail.com";
+        public const string validPasswordNotAdmin1 = "123456";
+
 
         //maximum time to wait for a browser page to load
         public const int maxWaitTime = 20;
