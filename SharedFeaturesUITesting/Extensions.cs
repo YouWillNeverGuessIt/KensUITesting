@@ -17,6 +17,11 @@ namespace SharedFeaturesUITesting
         //location to store screenshots in
         public const string screenshotLocation = "C:/Users/oslandt/Desktop/Screenshots";
 
+        //log in details used for testing
+        public const string validEmail1 = "testOMGTEST@gmail.com";
+        public const string validPassword1 = "123456";
+
+
 
 
 

@@ -36,7 +36,6 @@ namespace SharedFeaturesUITesting
         [TestMethod]
         public void ValidLogIn()
         {
-
             //!Make sure to add the path to where you extracting the chromedriver.exe:
             using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
             {
@@ -47,13 +46,13 @@ namespace SharedFeaturesUITesting
                 IWebElement emailBox = driver.FindElement(By.Id("Email"));
 
                 //enter a valid email to login
-                emailBox.SendKeys("testOMGTEST@gmail.com");
+                emailBox.SendKeys(Extensions.validEmail1);
 
                 //find the password box to input password info    
                 IWebElement passwordBox = driver.FindElement(By.Id("Password"));
 
                 //enter a valid password
-                passwordBox.SendKeys("123456");
+                passwordBox.SendKeys(Extensions.validPassword1);
 
                 //submit
                 driver.FindElement(By.Name("LogInSubmit")).Click();
@@ -79,11 +78,13 @@ namespace SharedFeaturesUITesting
 
         }
 
+
+
+
         //add tests for
         // clicking correct links
         // logging in incorrectly
         // toggling admin privleges
-        // logging off
 
 
         #region Additional test attributes
