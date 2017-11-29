@@ -47,14 +47,14 @@ namespace SharedFeaturesUITesting
         }
 
         [TestMethod]
-        public void KenworthLoginTestValidLogin()
+        public void ValidLogIn()
         {
 
             //!Make sure to add the path to where you extracting the chromedriver.exe:
             using (IWebDriver driver = new ChromeDriver(@"C:\Users\oslandt\Desktop\KensUITests"))//<-Add your path
             {
                 //navigate to the kenworth page
-                driver.Navigate().GoToUrl("http://localhost:50298/");
+                driver.Navigate().GoToUrl(Extensions.homepage);
 
                 //find the email box to input username info
                 IWebElement emailBox = driver.FindElement(By.Id("Email"));
@@ -69,14 +69,13 @@ namespace SharedFeaturesUITesting
                 passwordBox.SendKeys("123456");
 
                 //submit
-                //IWebElement submitButton = driver.FindElement(By.Name("LogInSubmit"));
                 driver.FindElement(By.Name("LogInSubmit")).Click();
 
                 //save a screenshot of the result
                 try
                 {
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
-                    ss.SaveAsFile(@"C:\Users\oslandt\Desktop\Screenshots\validLogIn.jpg", ScreenshotImageFormat.Jpeg);
+                    ss.SaveAsFile(@"C:\Users\oslandt\Desktop\Screenshots\ValidLogIn.jpg", ScreenshotImageFormat.Jpeg);
                 }
                 catch (Exception e)
                 {
@@ -86,6 +85,8 @@ namespace SharedFeaturesUITesting
             }
 
         }
+
+        
 
 
         #region Additional test attributes
