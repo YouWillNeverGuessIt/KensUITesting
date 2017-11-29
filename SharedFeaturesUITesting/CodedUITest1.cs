@@ -38,7 +38,7 @@ namespace SharedFeaturesUITesting
         {
 
             //!Make sure to add the path to where you extracting the chromedriver.exe:
-            using (IWebDriver driver = new ChromeDriver(@"C:\Users\oslandt\Desktop\KensUITests\SharedFeaturesUITesting"))//<-Add your path
+            using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
             {
                 driver.Navigate().GoToUrl("https://www.google.com");
 
@@ -86,7 +86,11 @@ namespace SharedFeaturesUITesting
 
         }
 
-        
+        //add tests for
+        // clicking correct links
+        // logging in incorrectly
+        // toggling admin privleges
+        // logging off
 
 
         #region Additional test attributes

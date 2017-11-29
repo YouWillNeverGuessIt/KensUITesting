@@ -10,7 +10,7 @@ namespace SharedFeaturesUITesting
     {
         public const string homepage = "http://localhost:50298/";
 
-
+        public const string chromeDriverLocation = "C:/Users/oslandt/Desktop/KensUITests/SharedFeaturesUITesting";
 
     }
 }
