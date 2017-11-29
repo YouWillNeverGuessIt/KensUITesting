@@ -124,6 +124,82 @@ namespace SharedFeaturesUITesting
         }
 
         [TestMethod]
+        public void NoLogIn()
+        {
+            //!Make sure to add the path to where you extracting the chromedriver.exe:
+            using (IWebDriver driver = new ChromeDriver(Extensions.ChromeDriverLocation))
+            {
+                //set an implicit wait time before any search for an item fails
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Extensions.MaxWaitTime);
+
+                //navigate to the kenworth page
+                driver.Navigate().GoToUrl(Extensions.Homepage);
+
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.ScreenshotLocation + "/NoLogInHomepage" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+
+                //click register, should take you to register page
+                driver.FindElement(By.Id("registerLink")).Click();
+
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.ScreenshotLocation + "/NoLogInRegister" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+
+                //click log in, should take you to the log in page again
+                driver.FindElement(By.Id("loginLink")).Click();
+
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.ScreenshotLocation + "/NoLogInLogin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+
+                
+            }
+        }
+
+        [TestMethod]
         public void ValidLogInAndLogOffAdmin()
         {
             //!Make sure to add the path to where you extracting the chromedriver.exe:
@@ -240,12 +316,14 @@ namespace SharedFeaturesUITesting
         //   toggling admin privleges
         // register a user
         //  needs a test db for that
-        // 
+        // naviagating site without logging in 
+        //
         //add bad paths for
         // log in
         // toggle admin privleges
         // database inputs
-        // 
+        // naviagting site without logging in
+        //
 
 
         #region Additional test attributes
