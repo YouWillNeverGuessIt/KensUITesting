@@ -12,8 +12,11 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
+
+
 namespace SharedFeaturesUITesting
 {
+    
     /// <summary>
     /// Summary description for CodedUITest1
     /// </summary>
@@ -43,7 +46,19 @@ namespace SharedFeaturesUITesting
 
         }
 
+        [TestMethod]
+        public void KenworthVisitTest()
+        {
 
+            //!Make sure to add the path to where you extracting the chromedriver.exe:
+            using (IWebDriver driver = new ChromeDriver(@"C:\Users\oslandt\Desktop\KensUITests\SharedFeaturesUITesting"))//<-Add your path
+            {
+                driver.Navigate().GoToUrl("http://localhost:50298/");
+
+
+            }
+
+        }
 
         #region Additional test attributes
 
