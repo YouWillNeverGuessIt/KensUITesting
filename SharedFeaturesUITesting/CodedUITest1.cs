@@ -37,22 +37,22 @@ namespace SharedFeaturesUITesting
         public void ValidLogInAdmin()
         {
             //!Make sure to add the path to where you extracting the chromedriver.exe:
-            using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
+            using (IWebDriver driver = new ChromeDriver(Extensions.ChromeDriverLocation))//<-Add your path
             {
                 //navigate to the kenworth page
-                driver.Navigate().GoToUrl(Extensions.homepage);
+                driver.Navigate().GoToUrl(Extensions.Homepage);
 
                 //find the email box to input username info
                 IWebElement emailBox = driver.FindElement(By.Id("Email"));
 
                 //enter a valid email to login
-                emailBox.SendKeys(Extensions.validEmailAdmin1);
+                emailBox.SendKeys(Extensions.ValidEmailAdmin1);
 
                 //find the password box to input password info    
                 IWebElement passwordBox = driver.FindElement(By.Id("Password"));
 
                 //enter a valid password
-                passwordBox.SendKeys(Extensions.validPasswordAdmin1);
+                passwordBox.SendKeys(Extensions.ValidPasswordAdmin1);
 
                 //submit
                 driver.FindElement(By.Name("LogInSubmit")).Click();
@@ -64,7 +64,7 @@ namespace SharedFeaturesUITesting
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
                     //create the name of the sceenshot
-                    string ssName = Extensions.screenshotLocation + "/ValidLogInAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+                    string ssName = Extensions.ScreenshotLocation + "/ValidLogInAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
 
                     //store the screenshot
                     ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
@@ -82,22 +82,22 @@ namespace SharedFeaturesUITesting
         public void ValidLogInNotAdmin()
         {
             //!Make sure to add the path to where you extracting the chromedriver.exe:
-            using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
+            using (IWebDriver driver = new ChromeDriver(Extensions.ChromeDriverLocation))//<-Add your path
             {
                 //navigate to the kenworth page
-                driver.Navigate().GoToUrl(Extensions.homepage);
+                driver.Navigate().GoToUrl(Extensions.Homepage);
 
                 //find the email box to input username info
                 IWebElement emailBox = driver.FindElement(By.Id("Email"));
 
                 //enter a valid email to login
-                emailBox.SendKeys(Extensions.validEmailNotAdmin1);
+                emailBox.SendKeys(Extensions.ValidEmailNotAdmin1);
 
                 //find the password box to input password info    
                 IWebElement passwordBox = driver.FindElement(By.Id("Password"));
 
                 //enter a valid password
-                passwordBox.SendKeys(Extensions.validPasswordNotAdmin1);
+                passwordBox.SendKeys(Extensions.ValidPasswordNotAdmin1);
 
                 //submit
                 driver.FindElement(By.Name("LogInSubmit")).Click();
@@ -109,7 +109,7 @@ namespace SharedFeaturesUITesting
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
                     //create the name of the sceenshot
-                    string ssName = Extensions.screenshotLocation + "/ValidLogInNotAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+                    string ssName = Extensions.ScreenshotLocation + "/ValidLogInNotAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
 
                     //store the screenshot
                     ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
@@ -127,34 +127,35 @@ namespace SharedFeaturesUITesting
         public void ValidLogInAndLogOffAdmin()
         {
             //!Make sure to add the path to where you extracting the chromedriver.exe:
-            using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
+            using (IWebDriver driver = new ChromeDriver(Extensions.ChromeDriverLocation))//<-Add your path
             {
                 //set an implicit wait time before any search for an item fails
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Extensions.maxWaitTime);
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Extensions.MaxWaitTime);
 
                 //navigate to the kenworth page
-                driver.Navigate().GoToUrl(Extensions.homepage);
+                driver.Navigate().GoToUrl(Extensions.Homepage);
 
                 //find the email box to input username info
                 IWebElement emailBox = driver.FindElement(By.Id("Email"));
 
                 //enter a valid email to login
-                emailBox.SendKeys(Extensions.validEmailAdmin1);
+                emailBox.SendKeys(Extensions.ValidEmailAdmin1);
 
                 //find the password box to input password info    
                 IWebElement passwordBox = driver.FindElement(By.Id("Password"));
 
                 //enter a valid password
-                passwordBox.SendKeys(Extensions.validPasswordAdmin1);
+                passwordBox.SendKeys(Extensions.ValidPasswordAdmin1);
 
                 //submit
                 driver.FindElement(By.Name("LogInSubmit")).Click();
 
                 //set a wait for page to render
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Extensions.maxWaitTime));
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Extensions.MaxWaitTime));
 
                 //set a wait until
-                IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(By.Name("LogOffSubmit")));
+                //IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(By.Name("LogOffSubmit")));
+                wait.Until(d => d.FindElement(By.Name("LogOffSubmit")));
 
                 //find the log out button and click it
                 driver.FindElement(By.Name("LogOffSubmit")).Click();
@@ -166,7 +167,7 @@ namespace SharedFeaturesUITesting
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
                     //create the name of the sceenshot
-                    string ssName = Extensions.screenshotLocation + "/ValidLogInAndLogOffAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+                    string ssName = Extensions.ScreenshotLocation + "/ValidLogInAndLogOffAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
 
                     //store the screenshot
                     ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
@@ -183,34 +184,34 @@ namespace SharedFeaturesUITesting
         public void ValidLogInAndLogOffNotAdmin()
         {
             //!Make sure to add the path to where you extracting the chromedriver.exe:
-            using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
+            using (IWebDriver driver = new ChromeDriver(Extensions.ChromeDriverLocation))//<-Add your path
             {
                 //set an implicit wait time before any search for an item fails
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Extensions.maxWaitTime);
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(Extensions.MaxWaitTime);
 
                 //navigate to the kenworth page
-                driver.Navigate().GoToUrl(Extensions.homepage);
+                driver.Navigate().GoToUrl(Extensions.Homepage);
 
                 //find the email box to input username info
                 IWebElement emailBox = driver.FindElement(By.Id("Email"));
 
                 //enter a valid email to login
-                emailBox.SendKeys(Extensions.validEmailNotAdmin1);
+                emailBox.SendKeys(Extensions.ValidEmailNotAdmin1);
 
                 //find the password box to input password info    
                 IWebElement passwordBox = driver.FindElement(By.Id("Password"));
 
                 //enter a valid password
-                passwordBox.SendKeys(Extensions.validPasswordNotAdmin1);
+                passwordBox.SendKeys(Extensions.ValidPasswordNotAdmin1);
 
                 //submit
                 driver.FindElement(By.Name("LogInSubmit")).Click();
 
                 //set a wait for page to render
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Extensions.maxWaitTime));
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Extensions.MaxWaitTime));
 
                 //set a wait until
-                IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(By.Name("LogOffSubmit")));
+                wait.Until(d => d.FindElement(By.Name("LogOffSubmit")));
 
                 //find the log out button and click it
                 driver.FindElement(By.Name("LogOffSubmit")).Click();
@@ -222,7 +223,7 @@ namespace SharedFeaturesUITesting
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
                     //create the name of the sceenshot
-                    string ssName = Extensions.screenshotLocation + "/ValidLogInAndLogOffNotAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+                    string ssName = Extensions.ScreenshotLocation + "/ValidLogInAndLogOffNotAdmin" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
 
                     //store the screenshot
                     ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);

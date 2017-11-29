@@ -9,29 +9,29 @@ namespace SharedFeaturesUITesting
     public class Extensions
     {
         //URL of the homepage
-        public const string homepage = "http://localhost:50298/";
+        public const string Homepage = "http://localhost:50298/";
 
         //file location of the chrome driver
-        public const string chromeDriverLocation = "C:/Users/oslandt/Desktop/KensUITests/SharedFeaturesUITesting";
+        public const string ChromeDriverLocation = "C:/Users/oslandt/Desktop/KensUITests/SharedFeaturesUITesting";
 
         //location to store screenshots in
-        public const string screenshotLocation = "C:/Users/oslandt/Desktop/Screenshots";
+        public const string ScreenshotLocation = "C:/Users/oslandt/Desktop/Screenshots";
 
         //log in details for admin user
-        public const string validEmailAdmin1 = "testOMGTEST@gmail.com";
-        public const string validPasswordAdmin1 = "123456";
+        public const string ValidEmailAdmin1 = "testOMGTEST@gmail.com";
+        public const string ValidPasswordAdmin1 = "123456";
 
         //log in details for nonadmin user
-        public const string validEmailNotAdmin1 = "userTest@gmail.com";
-        public const string validPasswordNotAdmin1 = "123456";
+        public const string ValidEmailNotAdmin1 = "userTest@gmail.com";
+        public const string ValidPasswordNotAdmin1 = "123456";
 
         //log in details for user to be registered correctly
-        public const string validEmailNotAdmin2 = "UITestUser@paccar.com";
-        public const string validPasswordNotAdmin2 = "123456";
+        public const string ValidEmailNotAdmin2 = "UITestUser@paccar.com";
+        public const string ValidPasswordNotAdmin2 = "123456";
 
 
         //maximum time to wait for a browser page to load
-        public const int maxWaitTime = 20;
+        public const int MaxWaitTime = 20;
         
 
 
