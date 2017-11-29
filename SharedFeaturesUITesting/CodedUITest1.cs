@@ -51,7 +51,7 @@ namespace SharedFeaturesUITesting
         {
 
             //!Make sure to add the path to where you extracting the chromedriver.exe:
-            using (IWebDriver driver = new ChromeDriver(@"C:\Users\oslandt\Desktop\KensUITests"))//<-Add your path
+            using (IWebDriver driver = new ChromeDriver(Extensions.chromeDriverLocation))//<-Add your path
             {
                 //navigate to the kenworth page
                 driver.Navigate().GoToUrl(Extensions.homepage);
