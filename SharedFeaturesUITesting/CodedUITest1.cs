@@ -238,10 +238,68 @@ namespace SharedFeaturesUITesting
                 }
 
                 //click about, should take you to about page
+                driver.FindElement(By.Id("aboutLinkNavBar")).Click();
 
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.ScreenshotLocation + "/NoLogInAboutPage" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
                 //click SetDatabase, should take you to the set database page
+                //click contact, should take you to contact page
+                driver.FindElement(By.Id("setDatabaseNavBar")).Click();
+
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.ScreenshotLocation + "/NoLogInSetDatabasePage" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
 
                 //click homescreen logo in top left, should take you to homepage(since not logged in this should be log in page)
+                //click contact, should take you to contact page
+                driver.FindElement(By.Id("homeLinkNavBar")).Click();
+
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.ScreenshotLocation + "/NoLogInHomeLinkNavBar" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
 
             }
         }
