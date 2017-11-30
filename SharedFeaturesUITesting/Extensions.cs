@@ -8,6 +8,8 @@ namespace SharedFeaturesUITesting
 {
     public class Extensions
     {
+        //IMPORTANT:::be sure these file locations are correct for your machine
+        //always be sure the website is running before attempting to test
         //URL of the homepage
         public const string Homepage = "http://localhost:50298/";
 
@@ -16,6 +18,8 @@ namespace SharedFeaturesUITesting
 
         //location to store screenshots in
         public const string ScreenshotLocation = "C:/Users/oslandt/Desktop/Screenshots";
+
+
 
         //log in details for admin user
         public const string ValidEmailAdmin1 = "testOMGTEST@gmail.com";

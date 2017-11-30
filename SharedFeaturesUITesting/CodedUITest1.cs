@@ -163,7 +163,7 @@ namespace SharedFeaturesUITesting
                     Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
                     //create the name of the sceenshot
-                    string ssName = Extensions.ScreenshotLocation + "/NoLogInRegister" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+                    string ssName = Extensions.ScreenshotLocation + "/NoLogInRegisterFromNav" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
 
                     //store the screenshot
                     ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
@@ -195,7 +195,35 @@ namespace SharedFeaturesUITesting
                     throw;
                 }
 
-                
+                //click register as a new user link on login page
+                driver.FindElement(By.Id("registerLinkOnPage")).Click();
+
+                //save a screenshot of the result
+                try
+                {
+                    //take the screenshot
+                    Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+
+                    //create the name of the sceenshot
+                    string ssName = Extensions.ScreenshotLocation + "/NoLogInRegisterFromPage" + Extensions.CurrentDateTimeFileStringFormat() + ".jpg";
+
+                    //store the screenshot
+                    ss.SaveAsFile(ssName, ScreenshotImageFormat.Jpeg);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+
+                //click contact, should take yo uto contact page
+
+                //click about, should take you to about page
+
+                //click SetDatabase, should take you to the set database page
+
+                //click homescreen logo in top left, should take you to homepage(since not logged in this should be log in page)
+
             }
         }
 
